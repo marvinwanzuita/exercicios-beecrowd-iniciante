@@ -26,7 +26,6 @@ fun main() {
 
         arr = Array(entradaArray[indiceArray]) { r -> IntArray(entradaArray[indiceArray]) }
 
-
         valorMatriz = 1
         iMatriz = 0
         jMatriz = 0
@@ -54,14 +53,12 @@ fun main() {
 
         } while (valorMatriz <= metadeMatriz)
 
-
         for (i in 0 until entradaArray[indiceArray]) {
-            print("  ")
             for (j in 0 until entradaArray[indiceArray]) {
                 if (j == entradaArray[indiceArray] - 1) {
-                    print("${arr[i][j]}")
+                    System.out.format("%3d",arr[i][j] )
                 } else {
-                    print("${arr[i][j]}   ")
+                    System.out.format("%3d ",arr[i][j] )
                 }
             }
             println()
