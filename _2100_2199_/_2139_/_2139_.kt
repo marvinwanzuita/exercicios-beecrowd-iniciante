@@ -16,7 +16,7 @@ fun main(){
 //    }
 
     while(s.hasNext()) {
-        entradas.add(readLine().toString())
+        entradas.add(s.nextLine())
     }
 
     for (i in 0 until entradas.size){

@@ -16,13 +16,13 @@ fun main(){
     var posicaoUltimaSequencia : Int
 
 
-    for (i in 0 until 2){
-        entradas.add(readLine().toString())
-    }
-
-//    while(s.hasNext()) {
+//    for (i in 0 until 2){
 //        entradas.add(readLine().toString())
 //    }
+
+    while(s.hasNext()) {
+        entradas.add(s.nextLine())
+    }
 
     for (i in 0 until entradas.size step 2){
 
