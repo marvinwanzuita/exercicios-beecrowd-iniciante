@@ -49,12 +49,12 @@ fun main(){
 
     for (i in 0 until marcosQuantidadeCartas){
         marcosColecaoCartas = sc.nextLine()
-        marcosColecaoCartasArrayString[i] = marcosColecaoCartas.split(" ").toTypedArray().toString()
+//        marcosColecaoCartasArrayString[i] = marcosColecaoCartas.split(" ").toTypedArray().toString()
     }
 
     for (i in 0 until leonardoQuantidadeCartas){
         leonardoColecaoCartas = sc.nextLine()
-        leonardoColecaoCartasArrayString[i] = leonardoColecaoCartas.split(" ").toTypedArray().toString()
+//        leonardoColecaoCartasArrayString[i] = leonardoColecaoCartas.split(" ").toTypedArray().toString()
     }
 
     cartasEscolhidas = sc.nextLine()
