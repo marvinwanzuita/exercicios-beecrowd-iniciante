@@ -62,7 +62,7 @@ fun main(){
 
         raioMagia = raioMagia(magiaIdentificador, magiaNivel)
 
-        menorDistancia = menorDistanciaCirculoRetangulo(coordenadasRetangulo, cxMagia, cyMagia)
+        menorDistancia = menorDistanciaCirculoRetangulo(coordenadasRetangulo, cxMagia, cyMagia, raioMagia)
 
         if (menorDistancia != null) {
             if (raioMagia >= menorDistancia) {
@@ -124,30 +124,48 @@ fun raioMagia(magia: String, nivelMagia: Int): Int {
     return raioMagia
 }
 
-fun menorDistanciaCirculoRetangulo(listaCoordenadasRetangulo: List<Int>, cxMagia: Int, cyMagia: Int): Double? {
+fun menorDistanciaCirculoRetangulo(listaCoordenadasRetangulo: List<Int>, cxMagia: Int, cyMagia: Int, raioMagia: Int): Double? {
 
-    var menorDistancia: Double? = null
-    var distanciaRetanguloCirculo : Double
     var xRetangulo : Int
     var yRetangulo : Int
 
-    for (i in 0..7 step 2){
+    var AxRetangulo = listaCoordenadasRetangulo[0]
+    var AyRetangulo = listaCoordenadasRetangulo[1]
+    var BxRetangulo = listaCoordenadasRetangulo[2]
+    var ByRetangulo = listaCoordenadasRetangulo[3]
+    var CxRetangulo = listaCoordenadasRetangulo[4]
+    var CyRetangulo = listaCoordenadasRetangulo[5]
+    var DxRetangulo = listaCoordenadasRetangulo[6]
+    var DyRetangulo = listaCoordenadasRetangulo[7]
 
-        xRetangulo = listaCoordenadasRetangulo[i]
-        yRetangulo = listaCoordenadasRetangulo[i + 1]
-
-        distanciaRetanguloCirculo = sqrt((xRetangulo - cxMagia).toDouble().pow(2) + (yRetangulo - cyMagia).toDouble().pow(2))
-
-        if (menorDistancia == null){
-            menorDistancia = distanciaRetanguloCirculo
-        } else {
-            if (distanciaRetanguloCirculo < menorDistancia){
-                menorDistancia = distanciaRetanguloCirculo
-            }
-        }
-
+    if (cxMagia <= AxRetangulo && (cyMagia >= AyRetangulo && cyMagia <= ByRetangulo)){
+        xRetangulo = AxRetangulo
+        yRetangulo = cyMagia
+    } else if (cxMagia >= DxRetangulo && (cyMagia >= DyRetangulo && cyMagia <= CyRetangulo)){
+        xRetangulo = DxRetangulo
+        yRetangulo = cyMagia
+    } else if (cyMagia <= AyRetangulo && (cxMagia >= AxRetangulo && cxMagia <= DxRetangulo)){
+        xRetangulo = cxMagia
+        yRetangulo = AyRetangulo
+    } else if (cyMagia >= ByRetangulo && (cxMagia >= AxRetangulo && cxMagia <= DxRetangulo)){
+        xRetangulo = cxMagia
+        yRetangulo = ByRetangulo
+    } else if (cxMagia <= AxRetangulo && cyMagia <= AyRetangulo){
+        xRetangulo = AxRetangulo
+        yRetangulo = AyRetangulo
+    } else if (cxMagia <= BxRetangulo && cyMagia >= ByRetangulo){
+        xRetangulo = BxRetangulo
+        yRetangulo = ByRetangulo
+    } else if (cxMagia >= CxRetangulo && cyMagia >= CyRetangulo){
+        xRetangulo = CxRetangulo
+        yRetangulo = CyRetangulo
+    } else if (cxMagia >= DxRetangulo && cyMagia <= DyRetangulo){
+        xRetangulo = DxRetangulo
+        yRetangulo = DyRetangulo
+    } else {
+        return raioMagia.toDouble()
     }
 
-    return menorDistancia
+    return sqrt((xRetangulo - cxMagia).toDouble().pow(2) + (yRetangulo - cyMagia).toDouble().pow(2))
 
 }
